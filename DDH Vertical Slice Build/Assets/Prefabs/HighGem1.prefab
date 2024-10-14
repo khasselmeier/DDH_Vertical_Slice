@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 1662889052039594753}
   m_Layer: 8
   m_Name: HighGem1
-  m_TagString: Untagged
+  m_TagString: HighGem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

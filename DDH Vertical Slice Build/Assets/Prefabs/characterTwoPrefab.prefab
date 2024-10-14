@@ -159,7 +159,7 @@ MonoBehaviour:
   npcHitDamage: 50
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   rig: {fileID: 3326773478083431802}
   mr: {fileID: 7104315666274614417}
   rocks: {fileID: 3471947376212225948}
