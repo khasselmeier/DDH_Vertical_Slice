@@ -15,19 +15,19 @@ public class GemPickup : MonoBehaviour
 
     private void Start()
     {
-        totalGems = Random.Range(50, 150); // quota will be between the value
+        totalGems = Random.Range(60, 150); // quota will be between the value
         //Debug.Log("Total quota needed to win: " + totalGems);
 
         // assign appropriate value range based on tag
         if (CompareTag("BaseGem"))
         {
             minGemValue = 1;
-            maxGemValue = 40;
+            maxGemValue = 30;
         }
         else if (CompareTag("HighGem"))
         {
             minGemValue = 30;
-            maxGemValue = 50;
+            maxGemValue = 60;
         }
 
         gemValue = Random.Range(minGemValue, maxGemValue + 1);

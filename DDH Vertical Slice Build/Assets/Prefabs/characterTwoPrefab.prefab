@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -83.61, y: 5.86, z: -126.359985}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7094462775451512082}
@@ -120,7 +120,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758939463628652877}
   serializedVersion: 4
-  m_Mass: 15
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -151,15 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d476be3261280264c8fad4a465827cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 25
-  jumpForce: 60
+  moveSpeed: 10
+  jumpForce: 30
   distanceToGround: 0.1
   maxHealth: 100
   currentHealth: 0
   npcHitDamage: 50
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   rig: {fileID: 3326773478083431802}
   mr: {fileID: 7104315666274614417}
   rocks: {fileID: 3471947376212225948}
@@ -182,9 +182,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  curAmmo: 25
-  maxAmmo: 30
-  bulletSpeed: 150
+  curAmmo: 5
+  maxAmmo: 20
+  bulletSpeed: 100
   shootRate: 0.2
   bulletPrefab: {fileID: 8573659379511454085, guid: 62073f03e36347a4abe390894213939a, type: 3}
   bulletSpawnPos: {fileID: 8222334028478896648}

@@ -19,13 +19,10 @@ public class FloodEvent : MonoBehaviour
     public float fadeSpeed = 1f;
     private Coroutine fadeCoroutine;
 
-    void Start()
+    private void Awake()
     {
-        player = FindObjectOfType<PlayerBehavior>(); // finds the player in the scene
-        if (player == null)
-        {
-            Debug.LogError("Player not found in the scene.");
-        }
+        // Start looking for the player in a coroutine if it's not assigned immediately
+        StartCoroutine(FindPlayerCoroutine());
 
         if (floodScreenOverlay == null)
         {
@@ -33,11 +30,11 @@ public class FloodEvent : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
-        if (!isFlooding)
+        if (!isFlooding && player != null)
         {
-            // check periodically if a flood should start
+            // Check periodically if a flood should start
             timeSinceLastCheck += Time.deltaTime;
             if (timeSinceLastCheck >= checkInterval)
             {
@@ -45,6 +42,21 @@ public class FloodEvent : MonoBehaviour
                 TryStartFlood();
             }
         }
+    }
+
+    private IEnumerator FindPlayerCoroutine()
+    {
+        // Wait until the PlayerBehavior is available
+        while (player == null)
+        {
+            player = FindObjectOfType<PlayerBehavior>();
+            if (player == null)
+            {
+                Debug.Log("Waiting for PlayerBehavior to be assigned...");
+                yield return new WaitForSeconds(0.5f); // Try again every 0.5 seconds
+            }
+        }
+        Debug.Log("PlayerBehavior found and assigned.");
     }
 
     void TryStartFlood()

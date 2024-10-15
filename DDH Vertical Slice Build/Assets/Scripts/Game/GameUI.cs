@@ -29,7 +29,59 @@ public class GameUI : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        PlayerBehavior.PlayerInitialized += OnPlayerInitialized;
+    }
+
+    private void OnDisable()
+    {
+        PlayerBehavior.PlayerInitialized -= OnPlayerInitialized;
+    }
+
+    private void OnPlayerInitialized(PlayerBehavior player)
+    {
+        this.player = player;
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        if (player != null)
+        {
+            UpdateHealthText(player.currentHealth, player.maxHealth);
+            UpdateGoldText(player.gold);
+            UpdateTotalGemsText();
+            UpdateAmmoText();
+        }
+        else
+        {
+            Debug.LogError("Player reference is missing.");
+        }
+    }
+
+    /*private IEnumerator DelayedInitialization()
+    {
+        while (player == null)
+        {
+            player = FindObjectOfType<PlayerBehavior>();
+            if (player == null)
+            {
+                Debug.Log("Waiting for PlayerBehavior...");
+                yield return new WaitForSeconds(0.1f); // recheck for playerbehavior every 0.1 seconds
+            }
+        }
+
+        Initialize();
+        Debug.Log("PlayerBehavior found and initialized.");
+    }
+
     private void Start()
+    {
+        StartCoroutine(DelayedInitialization());
+    }
+
+    /*private void Start()
     {
         player = FindObjectOfType<PlayerBehavior>();
         if (player != null)
@@ -40,16 +92,20 @@ public class GameUI : MonoBehaviour
         {
             Debug.LogError("PlayerBehavior not found in the scene.");
         }
-    }
+    }*/
 
-    public void Initialize()
+    /*public void Initialize()
     {
-        UpdateAmmoText();
+        if (player != null && player.rocks != null)
+        {
+            UpdateAmmoText();
+        }
+        //UpdateAmmoText();
         UpdateGoldText(player.gold);
         UpdateTotalGemsText(); // update "total quota to win" UI on initialization
         UpdateHealthText(player.currentHealth, player.maxHealth);
         UpdateGemsValueText(0);
-    }
+    }*/
 
     public void UpdateTotalGemsText()
     {

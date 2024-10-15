@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    public delegate void OnPlayerInitialized(PlayerBehavior player);
+    public static event OnPlayerInitialized PlayerInitialized; // New event for initialization
+
     [Header("Stats")]
     public float moveSpeed;
     public float jumpForce;
@@ -29,7 +32,7 @@ public class PlayerBehavior : MonoBehaviour
     public int totalValueOfGems = 0; // quota collected
     private int tradeCount = 0; // track number of trades completed
 
-    private void Start()
+    /*private void Start()
     {
         Initialize();
 
@@ -37,6 +40,21 @@ public class PlayerBehavior : MonoBehaviour
         {
             pickaxe.GetComponent<MeshRenderer>().enabled = false;
         }
+    }*/
+
+    private void Start()
+    {
+        currentHealth = maxHealth; // initialize player health
+        if (pickaxe != null)
+        {
+            var pickaxeRenderer = pickaxe.GetComponent<MeshRenderer>();
+            if (pickaxeRenderer != null) pickaxeRenderer.enabled = false;
+
+            var pickaxeCollider = pickaxe.GetComponent<Collider>();
+            if (pickaxeCollider != null) pickaxeCollider.enabled = false;
+        }
+
+        PlayerInitialized?.Invoke(this); // notify that player is initialized
     }
 
     public void Initialize()
