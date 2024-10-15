@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public delegate void OnPlayerInitialized(PlayerBehavior player);
-    public static event OnPlayerInitialized PlayerInitialized; // New event for initialization
+    public static event OnPlayerInitialized PlayerInitialized; // event for initializing player
 
     [Header("Stats")]
     public float moveSpeed;
@@ -31,16 +31,6 @@ public class PlayerBehavior : MonoBehaviour
     public static int collectedGems = 0;
     public int totalValueOfGems = 0; // quota collected
     private int tradeCount = 0; // track number of trades completed
-
-    /*private void Start()
-    {
-        Initialize();
-
-        if (pickaxe != null)
-        {
-            pickaxe.GetComponent<MeshRenderer>().enabled = false;
-        }
-    }*/
 
     private void Start()
     {
@@ -98,7 +88,7 @@ public class PlayerBehavior : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
 
         // shoot the raycast
-        if (Physics.Raycast(ray, 6.0f))
+        if (Physics.Raycast(ray, 1.0f))
             rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
         //Debug.Log("Jumping");
@@ -107,10 +97,10 @@ public class PlayerBehavior : MonoBehaviour
     public void TryMine()
     {
         RaycastHit hit;
-        float sphereRadius = 5f;
+        float sphereRadius = 10f;
 
         // visualize in the editor for debugging
-        Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.red, 5.0f);
+        Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.red, 10.0f);
 
         if (Physics.SphereCast(transform.position, sphereRadius, transform.forward, out hit, 10.0f))
         {
@@ -124,10 +114,10 @@ public class PlayerBehavior : MonoBehaviour
             {
                 CollectGem(gem, "HighGem");
             }
-            else
+            /*else
             {
                 Debug.Log("Cannot mine gem: Requirements not met or no gem detected in front of player");
-            }
+            }*/
         }
     }
 

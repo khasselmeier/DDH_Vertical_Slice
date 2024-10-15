@@ -151,7 +151,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4320993212029251303}
   serializedVersion: 4
-  m_Mass: 6
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 100
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 30
-  distanceToGround: 0.1
+  jumpForce: 40
+  distanceToGround: 0.01
   maxHealth: 200
   currentHealth: 0
   npcHitDamage: 50
