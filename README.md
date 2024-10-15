@@ -1,4 +1,6 @@
 # DDH_Vertical_Slice
-Note: Picking up gems can be a little wonky at times, but it works as long as you meet the prereqs
+***What's New:***
+1. Added new assets for the ground, walls, ceiling, and rock pickups
+2. Redesigned entire game scene
 
 Play: https://khasselmeier.github.io/DDH_Vertical_Slice/
