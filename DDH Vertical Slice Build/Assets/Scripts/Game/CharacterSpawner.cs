@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    public GameObject characterOnePrefab;  // Prefab for Character One
-    public GameObject characterTwoPrefab;  // Prefab for Character Two
+    public GameObject characterOnePrefab;  // Prefab for Moldrock
+    public GameObject characterTwoPrefab;  // Prefab for Thalgrim
     public Transform spawnPoint;           // The point where the character will spawn
 
     void Start()
     {
         // Get the selected character from PlayerPrefs
-        string selectedCharacter = PlayerPrefs.GetString("SelectedCharacter", "Character One");
+        string selectedCharacter = PlayerPrefs.GetString("SelectedCharacter", "Moldrock");
         Debug.Log("Selected Character from PlayerPrefs: " + selectedCharacter);
 
         // Spawn the character based on the selection
@@ -22,15 +22,15 @@ public class CharacterSpawner : MonoBehaviour
         GameObject selectedPrefab = null;
 
         // Determine which character to spawn based on the selected character type
-        if (selectedCharacter == "Character One")
+        if (selectedCharacter == "Moldrock")
         {
             selectedPrefab = characterOnePrefab;
-            Debug.Log("Character One prefab selected.");
+            Debug.Log("Moldrock prefab selected.");
         }
-        else if (selectedCharacter == "Character Two")
+        else if (selectedCharacter == "Thalgrim")
         {
             selectedPrefab = characterTwoPrefab;
-            Debug.Log("Character Two prefab selected.");
+            Debug.Log("Thalgrim prefab selected.");
         }
         else
         {

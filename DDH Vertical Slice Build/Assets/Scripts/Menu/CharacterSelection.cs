@@ -15,13 +15,13 @@ public class CharacterSelection : MonoBehaviour
 
     public void ChooseCharOne()
     {
-        selectedCharacter = "Character One";
+        selectedCharacter = "Moldrock";
         ShowConfirmation();
     }
 
     public void ChooseCharTwo()
     {
-        selectedCharacter = "Character Two";
+        selectedCharacter = "Thalgrim";
         ShowConfirmation();
     }
 
@@ -35,7 +35,7 @@ public class CharacterSelection : MonoBehaviour
     // called when the player confirms their selection
     public void ConfirmSelection()
     {
-        messageText.text = $"You have chosen the {selectedCharacter}!";
+        messageText.text = $"You have chosen {selectedCharacter}!";
         confirmationPanel.SetActive(false); // Hide the confirmation panel
         Debug.Log($"{selectedCharacter} selected.");
 

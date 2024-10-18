@@ -117,7 +117,7 @@ public class GameUI : MonoBehaviour
         if (player != null && player.rocks != null)
         {
             //Debug.Log("Update Ammo UI: " + player.rocks.curAmmo + " / " + player.rocks.maxAmmo);
-            ammoText.text = "Rocks: " + player.rocks.curAmmo + " / " + player.rocks.maxAmmo;
+            ammoText.text = " " + player.rocks.curAmmo + " / " + player.rocks.maxAmmo;
         }
         else
         {
@@ -127,16 +127,16 @@ public class GameUI : MonoBehaviour
 
     public void UpdateGemsValueText(int totalValue)
     {
-        gemsValueText.text = "Quota Collected: " + totalValue;
+        gemsValueText.text = " " + totalValue;
     }
 
     public void UpdateGoldText(int goldAmount)
     {
-        goldText.text = "Gold: " + goldAmount;
+        goldText.text = " " + goldAmount;
     }
 
     public void UpdateHealthText(int currentHealth, int maxHealth)
     {
-        healthText.text = "Health: " + currentHealth + " / " + maxHealth;
+        healthText.text = " " + currentHealth + " / " + maxHealth;
     }
 }
