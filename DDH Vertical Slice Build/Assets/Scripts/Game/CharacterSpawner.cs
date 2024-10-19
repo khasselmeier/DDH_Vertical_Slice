@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSpawner : MonoBehaviour
 {
     public GameObject characterOnePrefab;  // Prefab for Moldrock
     public GameObject characterTwoPrefab;  // Prefab for Thalgrim
-    public Transform spawnPoint;           // The point where the character will spawn
+    public Transform spawnPoint;
+
+    public Image moldrockUIImage;
+    public Image thalgrimUIImage;
 
     void Start()
     {
@@ -14,9 +18,11 @@ public class CharacterSpawner : MonoBehaviour
 
         // Spawn the character based on the selection
         SpawnCharacter(selectedCharacter);
+
+        // Update UI based on the selected character
+        UpdateCharacterUI(selectedCharacter);
     }
 
-    // Method to spawn the character based on the selected type
     public void SpawnCharacter(string selectedCharacter)
     {
         GameObject selectedPrefab = null;
@@ -25,16 +31,16 @@ public class CharacterSpawner : MonoBehaviour
         if (selectedCharacter == "Moldrock")
         {
             selectedPrefab = characterOnePrefab;
-            Debug.Log("Moldrock prefab selected.");
+            Debug.Log("Moldrock prefab selected");
         }
         else if (selectedCharacter == "Thalgrim")
         {
             selectedPrefab = characterTwoPrefab;
-            Debug.Log("Thalgrim prefab selected.");
+            Debug.Log("Thalgrim prefab selected");
         }
         else
         {
-            Debug.LogError("Unknown character selected.");
+            Debug.LogError("Unknown character selected");
         }
 
         // Spawn the character at the spawn point
@@ -55,6 +61,26 @@ public class CharacterSpawner : MonoBehaviour
             {
                 Debug.LogError("Spawn point is missing!");
             }
+        }
+    }
+
+    private void UpdateCharacterUI(string selectedCharacter)
+    {
+        if (selectedCharacter == "Moldrock")
+        {
+            moldrockUIImage.gameObject.SetActive(true);
+            thalgrimUIImage.gameObject.SetActive(false);
+            Debug.Log("Moldrock UI image displayed");
+        }
+        else if (selectedCharacter == "Thalgrim")
+        {
+            thalgrimUIImage.gameObject.SetActive(true);
+            moldrockUIImage.gameObject.SetActive(false);
+            Debug.Log("Thalgrim UI image displayed");
+        }
+        else
+        {
+            Debug.LogError("Unknown character selected, no UI image to display.");
         }
     }
 }
