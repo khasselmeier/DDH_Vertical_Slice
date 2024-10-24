@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
@@ -24,6 +25,9 @@ public class EnemyAI : MonoBehaviour
     private float waitTimer;
     private float attackTimer;
 
+    private Renderer enemyRenderer;
+    private Color originalColor; //store the original enemy color
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -31,6 +35,9 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent.speed = patrolSpeed;
         currentHealth = maxHealth; // initialize health
         attackTimer = 0f;
+
+        enemyRenderer = GetComponent<Renderer>();
+        originalColor = enemyRenderer.material.color; //store the original enemy color
     }
 
     void Update()
@@ -129,11 +136,26 @@ public class EnemyAI : MonoBehaviour
         currentHealth -= damage;
         Debug.Log($"Enemy took {damage} damage. Current health: {currentHealth}");
 
+        //flash red
+        StartCoroutine(FlashRed());
+
         // calls the die method if health hits zero
         if (currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        //change the enemy's color to red
+        enemyRenderer.material.color = Color.red;
+
+        //wait for half a second
+        yield return new WaitForSeconds(0.5f);
+
+        //change back to the original color
+        enemyRenderer.material.color = originalColor;
     }
 
     private void AttackPlayer()

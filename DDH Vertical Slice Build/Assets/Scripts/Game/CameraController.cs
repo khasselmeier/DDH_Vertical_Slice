@@ -5,12 +5,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Look Sensitivity")]
-    public float sensX;
-    public float sensY;
+    public float sensX = 500f;
+    public float sensY = 500f;
 
     [Header("Clamping")]
-    public float minY;
-    public float maxY;
+    public float minY = -50f;
+    public float maxY = 50f;
 
     private float rotX;
     private float rotY;
@@ -19,26 +19,32 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        //lock the cursor to the middle of the screen
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false; // Ensure the cursor is hidden
     }
 
     void LateUpdate()
     {
         if (!canMove) return;
 
-        //get the mouse movement imputs
-        rotX += Input.GetAxis("Mouse X") * sensX;
-        rotY += Input.GetAxis("Mouse Y") * sensY;
+        float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
 
-        //clamp the vertical rotation
+        rotX += mouseX;
+        rotY -= mouseY;
+
         rotY = Mathf.Clamp(rotY, minY, maxY);
 
-        //rotate the camera vertically
-        transform.localRotation = Quaternion.Euler(-rotY, 0, 0);
-
-        //rotate the player horizontally
+        transform.localRotation = Quaternion.Euler(rotY, 0, 0);
         transform.parent.rotation = Quaternion.Euler(0, rotX, 0);
+    }
+
+    public void SetMouseSensitivity(float newSensX, float? newSensY = null)
+    {
+        sensX = newSensX; // Directly set the X sensitivity
+        sensY = newSensY.HasValue ? newSensY.Value : sensX; // Use provided Y or default to X
+
+        Debug.Log($"Sensitivity updated to X: {sensX}, Y: {sensY}");
     }
 
     public void ToggleCameraMovement(bool isActive)

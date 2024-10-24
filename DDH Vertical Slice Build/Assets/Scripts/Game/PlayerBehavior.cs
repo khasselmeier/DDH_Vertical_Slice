@@ -65,7 +65,7 @@ public class PlayerBehavior : MonoBehaviour
             rocks.TryShoot();
 
         if (Input.GetMouseButtonDown(0)) // left mouse button down (button index 0)
-            TryMine();
+            TryCollectGem();
     }
 
     void Move()
@@ -94,31 +94,27 @@ public class PlayerBehavior : MonoBehaviour
         //Debug.Log("Jumping");
     }
 
-    public void TryMine()
+    public void TryCollectGem()
     {
-        RaycastHit hit;
-        float sphereRadius = 10f;
+        float detectionRange = 10f; //detection range
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange); //get colliders within range
 
-        // visualize in the editor for debugging
-        Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.red, 10.0f);
-
-        if (Physics.SphereCast(transform.position, sphereRadius, transform.forward, out hit, 10.0f))
+        foreach (var hitCollider in hitColliders)
         {
-            GameObject gem = hit.collider.gameObject;
+            GameObject gem = hitCollider.gameObject;
 
             if (gem.CompareTag("BaseGem") && canMineBaseGem)
             {
                 CollectGem(gem, "BaseGem");
+                return;
             }
             else if (gem.CompareTag("HighGem") && canMineHighGem)
             {
                 CollectGem(gem, "HighGem");
+                return;
             }
-            /*else
-            {
-                Debug.Log("Cannot mine gem: Requirements not met or no gem detected in front of player");
-            }*/
         }
+        //Debug.Log("No collectible gems in range or requirements not met");
     }
 
     public void CollectGem(GameObject gem, string gemType)
