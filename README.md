@@ -1,23 +1,11 @@
 # DDH_Vertical_Slice
-***What's New:***
-1. Added new assets for the ground, walls, ceiling, and rock pickups
-2. Redesigned entire game scene
+***What's New 10/15-10/21:***
+1. Gave characters names and characteristics
+2. Updated menu, game, and pause screen UI
+3. Added sprites for player icon, health, gems, gold, and rocks
+4. Added music to the menu and made it continue through the game scene
 
-***What's Coming Soon:***
-
-**Redo the menu scene:**
-1. Redesign the menu to match the games aesthetics and add a custom font
-
-2. Add details for the two different characters in the selection screen - rename the characters
-
-3. Add music to the menu scene
-
-**Update the game UI**
-
-1. Add sprites for gold, rocks, gems, etc.
-
-2. Add a player icon to the UI for the player's selected character
-
-3. Change the pause screen to match the game's aesthetics better
+**Known Bug(s):**
+1. Picking up gems is extremely finicky and doesn't work most of the time
 
 Play: https://khasselmeier.github.io/DDH_Vertical_Slice/
