@@ -6,11 +6,11 @@ public class MouseSensitivityManager : MonoBehaviour
 {
     public Slider sensitivitySlider;
     public TMP_Text sensitivityText;
-    private float mouseSensitivity = 1000f;
+    private float mouseSensitivity = 200f;
 
     void Start()
     {
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 1000f);
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 200f);
         sensitivitySlider.value = mouseSensitivity;
         UpdateSensitivityText();
         ApplySensitivity(); // Apply the loaded sensitivity

@@ -1467,7 +1467,7 @@ RectTransform:
   - {fileID: 2054130067}
   - {fileID: 521500253}
   - {fileID: 1766100658}
-  - {fileID: 698888923}
+  - {fileID: 737545478}
   - {fileID: 2042811190}
   - {fileID: 125425069}
   - {fileID: 3201242824803838060}
@@ -15974,81 +15974,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4616131731774762, guid: d0c912cf2ddddbc4483afce747d3db90, type: 3}
   m_PrefabInstance: {fileID: 698881662}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &698888922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 698888923}
-  - component: {fileID: 698888925}
-  - component: {fileID: 698888924}
-  m_Layer: 5
-  m_Name: ToxicGasEvent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &698888923
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698888922}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.62815, y: 6.9335155, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 52173190}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.393921, y: 0.96990967}
-  m_SizeDelta: {x: -1030.9, y: -508.3779}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &698888924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698888922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.2034132, g: 0.2830189, b: 0.16687435, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &698888925
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698888922}
-  m_CullTransparentMesh: 1
 --- !u!1001 &700151142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16991,6 +16916,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4453788348126682, guid: 274eda99c510a1f44a1db8802f60a5bb, type: 3}
   m_PrefabInstance: {fileID: 736064196}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &737545477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737545478}
+  - component: {fileID: 737545480}
+  - component: {fileID: 737545479}
+  m_Layer: 5
+  m_Name: ToxicGasEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &737545478
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737545477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 12.62815, y: 6.9335155, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 52173190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 4.393921, y: 0.96990967}
+  m_SizeDelta: {x: -1030.9, y: -508.3779}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &737545479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737545477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2034132, g: 0.2830189, b: 0.16687435, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &737545480
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737545477}
+  m_CullTransparentMesh: 1
 --- !u!1001 &737653651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18659,8 +18659,8 @@ GameObject:
   - component: {fileID: 794773593}
   - component: {fileID: 794773592}
   - component: {fileID: 794773591}
-  - component: {fileID: 794773590}
   - component: {fileID: 794773589}
+  - component: {fileID: 794773590}
   - component: {fileID: 794773594}
   m_Layer: 0
   m_Name: GameManager
@@ -18762,7 +18762,7 @@ MonoBehaviour:
   gasDuration: 10
   gasDamageInterval: 1
   damagePerTick: 2
-  gasScreenOverlay: {fileID: 698888924}
+  gasScreenOverlay: {fileID: 737545479}
   gasNotificationText: {fileID: 2042811191}
   checkInterval: 30
   fadeSpeed: 1
@@ -30216,7 +30216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -47300,8 +47300,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1471607680}
   m_HandleRect: {fileID: 2044665425}
   m_Direction: 0
-  m_MinValue: 300
-  m_MaxValue: 2000
+  m_MinValue: 2
+  m_MaxValue: 1500
   m_WholeNumbers: 0
   m_Value: 1000
   m_OnValueChanged:
