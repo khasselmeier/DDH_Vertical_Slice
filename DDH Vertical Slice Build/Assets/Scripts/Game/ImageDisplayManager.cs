@@ -16,7 +16,7 @@ public class ImageDisplayManager : MonoBehaviour
         foreach (Image img in images)
         {
             img.gameObject.SetActive(true);
-            yield return new WaitForSeconds(3f); //wait for *blank* seconds
+            yield return new WaitForSeconds(5f); //wait for *blank* seconds
             img.gameObject.SetActive(false);
         }
     }

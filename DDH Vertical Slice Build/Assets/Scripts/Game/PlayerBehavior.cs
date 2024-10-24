@@ -35,13 +35,26 @@ public class PlayerBehavior : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth; // initialize player health
+
         if (pickaxe != null)
         {
             var pickaxeRenderer = pickaxe.GetComponent<MeshRenderer>();
-            if (pickaxeRenderer != null) pickaxeRenderer.enabled = false;
+            if (pickaxeRenderer != null)
+            {
+                pickaxeRenderer.enabled = false;
+            }
+
+            pickaxe.SetActive(false); // Disable pickaxe at the start
 
             var pickaxeCollider = pickaxe.GetComponent<Collider>();
-            if (pickaxeCollider != null) pickaxeCollider.enabled = false;
+            if (pickaxeCollider != null)
+            {
+                pickaxeCollider.enabled = false;
+            }
+        }
+        else
+        {
+            Debug.LogError("Pickaxe GameObject is not assigned.");
         }
 
         PlayerInitialized?.Invoke(this); // notify that player is initialized
@@ -141,6 +154,36 @@ public class PlayerBehavior : MonoBehaviour
         {
             hasTraded = true;
             canMineBaseGem = true;
+
+            // Display the pickaxe after the first trade
+            if (pickaxe != null)
+            {
+                pickaxe.SetActive(true); // Activate the pickaxe GameObject
+
+                var pickaxeRenderer = pickaxe.GetComponent<MeshRenderer>();
+                if (pickaxeRenderer != null)
+                {
+                    pickaxeRenderer.enabled = true; // Enable the MeshRenderer
+                    Debug.Log("Pickaxe renderer enabled.");
+                }
+                else
+                {
+                    Debug.LogError("MeshRenderer not found on the pickaxe.");
+                }
+
+                // Enable the collider if necessary
+                var pickaxeCollider = pickaxe.GetComponent<Collider>();
+                if (pickaxeCollider != null)
+                {
+                    pickaxeCollider.enabled = true; // Enable the collider if needed
+                    Debug.Log("Pickaxe collider enabled.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Pickaxe GameObject is not assigned.");
+            }
+
             Debug.Log("First trade complete. Player can now mine 'Base Gems'");
         }
         else if (tradeCount == 2)
