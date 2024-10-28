@@ -7,6 +7,7 @@ public class NPCTrader : MonoBehaviour
     public int upgradeCostHighGem = 100;
     public int damageIncrease = 5;
     public TextMeshProUGUI tradePromptText;
+    public GameObject tradePanel; // UI panel to show interact button when in range
 
     private PlayerBehavior player; 
     private bool isPlayerInRange = false;
@@ -17,6 +18,10 @@ public class NPCTrader : MonoBehaviour
     {
         // trade prompt is hidden at the start
         tradePromptText.gameObject.SetActive(false);
+        if (tradePanel != null)
+        {
+            tradePanel.SetActive(false); // hide at the start
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +30,11 @@ public class NPCTrader : MonoBehaviour
         {
             player = other.GetComponent<PlayerBehavior>();
             isPlayerInRange = true;
+
+            if (tradePanel != null)
+            {
+                tradePanel.SetActive(true); // show UI panel
+            }
 
             // update trade prompt based on player's trade status
             if (!hasTradedBaseGem)
@@ -46,6 +56,12 @@ public class NPCTrader : MonoBehaviour
         {
             isPlayerInRange = false;
             player = null;
+
+            // hide panel when the player leaves the range
+            if (tradePanel != null)
+            {
+                tradePanel.SetActive(false);
+            }
 
             // hide trade prompt UI when the player leaves the range
             tradePromptText.gameObject.SetActive(false);

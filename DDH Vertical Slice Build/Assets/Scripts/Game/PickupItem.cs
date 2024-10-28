@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickupItem : MonoBehaviour
 {
@@ -14,15 +15,27 @@ public class PickupItem : MonoBehaviour
     private bool isPlayerInRange = false;
     private PlayerBehavior player; // ref to the player
 
+    [Header("UI Elements")]
+    public GameObject pickupPanel; // UI panel to show interact button when in pickup range
+
     private void Start()
     {
         if (itemType == ItemType.Rock)
         {
-            amount = Random.Range(1, 5); // random value for rocks
+            amount = Random.Range(1, 10); // random value for rocks
         }
         else if (itemType == ItemType.Gold)
         {
-            amount = Random.Range(10, 30); // random value for gold
+            amount = Random.Range(5, 20); // random value for gold
+        }
+
+        if (pickupPanel != null)
+        {
+            pickupPanel.SetActive(false); // hide the UI panel initially
+        }
+        else
+        {
+            Debug.LogError("Pickup panel is not assigned in the inspector");
         }
 
         //Debug.Log($"{itemType} pickup created with amount: {amount}");
@@ -35,6 +48,12 @@ public class PickupItem : MonoBehaviour
             isPlayerInRange = true;
             player = other.GetComponent<PlayerBehavior>();
             //Debug.Log("Player entered pickup range.");
+
+            // show the panel when the player is in range
+            if (pickupPanel != null)
+            {
+                pickupPanel.SetActive(true);
+            }
         }
     }
 
@@ -44,6 +63,13 @@ public class PickupItem : MonoBehaviour
         {
             isPlayerInRange = false;
             player = null; // clears player reference
+
+            // Hide the pickup panel when the player leaves the range
+            if (pickupPanel != null)
+            {
+                pickupPanel.SetActive(false);
+            }
+
             //Debug.Log("Player exited pickup range.");
         }
     }
@@ -70,12 +96,18 @@ public class PickupItem : MonoBehaviour
                 GameUI.instance.UpdateAmmoText(); // update ammo UI
                 GameUI.instance.UpdateGoldText(player.gold); // update gold UI
 
+                // hide the panel after
+                if (pickupPanel != null)
+                {
+                    pickupPanel.SetActive(false);
+                }
+
                 // destroy item after collection
                 Destroy(gameObject);
             }
             else
             {
-                Debug.Log("Player reference is null!");
+                Debug.Log("Player reference is null");
             }
         }
     }

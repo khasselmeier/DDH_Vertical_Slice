@@ -109,7 +109,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public void TryCollectGem()
     {
-        float detectionRange = 10f; //detection range
+        float detectionRange = 2f; //detection range
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange); //get colliders within range
 
         foreach (var hitCollider in hitColliders)
@@ -144,6 +144,25 @@ public class PlayerBehavior : MonoBehaviour
             // update UI
             GameUI.instance.UpdateGemsValueText(totalValueOfGems);
         }
+    }
+
+    public bool IsNearGem()
+    {
+        float detectionRange = 2f;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange);
+
+        foreach (var hitCollider in hitColliders)
+        {
+            GameObject gem = hitCollider.gameObject;
+
+            // Check if the player can mine base or high gems
+            if (gem.CompareTag("BaseGem") && canMineBaseGem || gem.CompareTag("HighGem") && canMineHighGem)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void PerformTrade()

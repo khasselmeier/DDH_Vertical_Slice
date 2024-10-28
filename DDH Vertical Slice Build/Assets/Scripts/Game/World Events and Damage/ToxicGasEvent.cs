@@ -124,7 +124,7 @@ public class ToxicGasEvent : MonoBehaviour
     IEnumerator FadeScreen(bool fadeIn)
     {
         Color overlayColor = gasScreenOverlay.color;
-        float targetAlpha = fadeIn ? 0.3f : 0f; // 30% green when the toxic gas is active, 0% when it's over
+        float targetAlpha = fadeIn ? 0.4f : 0f; // 40% green when the toxic gas is active, 0% when it's over
 
         while (!Mathf.Approximately(overlayColor.a, targetAlpha))
         {
