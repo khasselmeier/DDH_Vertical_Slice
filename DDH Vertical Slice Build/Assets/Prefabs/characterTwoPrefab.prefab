@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  curAmmo: 10
+  curAmmo: 15
   maxAmmo: 20
   bulletSpeed: 100
   shootRate: 0.5
