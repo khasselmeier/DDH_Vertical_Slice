@@ -38,23 +38,8 @@ public class PlayerBehavior : MonoBehaviour
 
         if (pickaxe != null)
         {
-            var pickaxeRenderer = pickaxe.GetComponent<MeshRenderer>();
-            if (pickaxeRenderer != null)
-            {
-                pickaxeRenderer.enabled = false;
-            }
-
-            pickaxe.SetActive(false); // Disable pickaxe at the start
-
-            var pickaxeCollider = pickaxe.GetComponent<Collider>();
-            if (pickaxeCollider != null)
-            {
-                pickaxeCollider.enabled = false;
-            }
-        }
-        else
-        {
-            Debug.LogError("Pickaxe GameObject is not assigned.");
+            pickaxe.SetActive(false); // disable pickaxe at the start
+            Debug.Log("Pickaxe is set to inactive");
         }
 
         PlayerInitialized?.Invoke(this); // notify that player is initialized
@@ -167,48 +152,11 @@ public class PlayerBehavior : MonoBehaviour
 
     public void PerformTrade()
     {
-        tradeCount++;
-
-        if (tradeCount == 1)
+        // display the pickaxe after the first trade
+        if (pickaxe != null)
         {
-            hasTraded = true;
-            canMineBaseGem = true;
-
-            // Display the pickaxe after the first trade
-            if (pickaxe != null)
-            {
-                pickaxe.SetActive(true); // Activate the pickaxe GameObject
-
-                var pickaxeRenderer = pickaxe.GetComponent<MeshRenderer>();
-                if (pickaxeRenderer != null)
-                {
-                    pickaxeRenderer.enabled = true; // Enable the MeshRenderer
-                    Debug.Log("Pickaxe renderer enabled.");
-                }
-                else
-                {
-                    Debug.LogError("MeshRenderer not found on the pickaxe.");
-                }
-
-                // Enable the collider if necessary
-                var pickaxeCollider = pickaxe.GetComponent<Collider>();
-                if (pickaxeCollider != null)
-                {
-                    pickaxeCollider.enabled = true; // Enable the collider if needed
-                    Debug.Log("Pickaxe collider enabled.");
-                }
-            }
-            else
-            {
-                Debug.LogError("Pickaxe GameObject is not assigned.");
-            }
-
-            Debug.Log("First trade complete. Player can now mine 'Base Gems'");
-        }
-        else if (tradeCount == 2)
-        {
-            canMineHighGem = true;
-            Debug.Log("Second trade complete. Player can now mine 'High Gems'");
+            pickaxe.SetActive(true);
+            Debug.Log("Pickaxe enabled");
         }
     }
 

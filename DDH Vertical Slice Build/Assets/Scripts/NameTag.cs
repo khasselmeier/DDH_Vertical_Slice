@@ -33,7 +33,7 @@ public class NameTag : MonoBehaviour
         if (Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
-            Debug.Log("Camera found for Nametag");
+            //Debug.Log("Camera found for Nametag");
         }
     }
 }
