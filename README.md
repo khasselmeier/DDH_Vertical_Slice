@@ -5,6 +5,7 @@
 
 ***Known Bug(s):***
 1. The small enemies behave weirdly
+2. Some of the gem spawn positions make the gems float (primarily affects the blue gems)
 
 ***What's New 10/29-11/4:***
 1. Added a name tag above enemies and the NPC
